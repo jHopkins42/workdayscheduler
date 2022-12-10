@@ -25,6 +25,10 @@ $(function () {
     var userData = $(this).siblings(".description").val()
     var timeBlock = $(this).parent().attr("id").split("-")[1]
     console.log(userData,timeBlock)
+    localStorage.setItem(timeBlock,userData)
   })
-
+  for(let i=9;i<=19;i++){
+    var storedValue = localStorage.getItem(i) 
+    $("#hour-"+i).children(".description").val(storedValue)
+  }
 });
