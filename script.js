@@ -1,3 +1,6 @@
+  var currentHour = dayjs().hour()
+  console.log(currentHour)
+
 // Wrap all code that interacts with the DOM in a call to jQuery to ensure that
 // the code isn't run until the browser has finished rendering all the elements
 // in the html.
@@ -21,14 +24,14 @@ $(function () {
   //
   // TODO: Add code to display the current date in the header of the page.
   $("#currentDay").text("It is currently:  " + dayjs().format("DD-MMM-YY  T-HH:mm"))
+
   $(".saveBtn").on("click",function(){
     var userData = $(this).siblings(".description").val()
     var timeBlock = $(this).parent().attr("id").split("-")[1]
     console.log(userData,timeBlock)
     localStorage.setItem(timeBlock,userData)
   })
-  var currentHour = dayjs().hour()
-  console.log(currentHour)
+
   for(let i=6; i<=19; i++){
     var storedValue = localStorage.getItem(i) 
     $("#hour-"+i).children(".description").val(storedValue)
@@ -56,12 +59,4 @@ $('.printBtn').click(function(){
   localStorage.clear();
 });
 
-/*<script>
-$(document).ready(function () {
-    $("#printBtn").click(function () {
-        alert("Your schedule is being printed and reset!");
-    });
-});
-</script>*/
-//above 7 lines of code not working in either html or script: need to debug why
 
