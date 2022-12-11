@@ -43,3 +43,25 @@ $(function () {
 });
 
 
+$(".saveBtn").on("click",function(){
+  var userData = $(this).siblings(".description").val()
+  var timeBlock = $(this).parent().attr("id").split("-")[1]
+  console.log(userData,timeBlock)
+  localStorage.setItem(timeBlock,userData)
+});
+
+$('.printBtn').click(function(){
+  window.print();
+  alert("Your schedule is now being printed and refreshed.");
+  localStorage.clear();
+});
+
+/*<script>
+$(document).ready(function () {
+    $("#printBtn").click(function () {
+        alert("Your schedule is being printed and reset!");
+    });
+});
+</script>*/
+//above 7 lines of code not working in either html or script: need to debug why
+
