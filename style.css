@@ -66,6 +66,7 @@ textarea {
 }
 
 .printBtn i:hover {
+  margin: 0;
   background-color: goldenrod;
   cursor: pointer;
 }
